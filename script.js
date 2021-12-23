@@ -22,7 +22,7 @@ function operate(operator, ...args) {
     case "-":
       return subtract(...args)
       break;
-    case "*":
+    case "×":
       return multiply(...args)
       break;
     case "÷":
@@ -46,7 +46,8 @@ buttonInputs.forEach(button => button.addEventListener('click', e => inputBox.te
 
 operatorButtons.forEach(button => button.addEventListener('click', e => {
   operator = e.target.textContent;
-  total = inputBox.value;
+  total = inputBox.textContent;
+  console.log(total)
 }));
 
 
