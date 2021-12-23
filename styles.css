@@ -7,7 +7,7 @@ body {
 #button_container {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
@@ -15,30 +15,39 @@ body {
   padding: 25px;
   display: flex;
   flex-direction: column;
-  background-color: blue;
-  height: 600px;
-  width: 500px;
+  background-color: #1A374D;
+  /* height: 600px; */
+  width: 400px;
+  border: 3px solid black;
   border-radius: 10px;
   align-items: center;
   z-index: 0;
 }
 
-/* #calculator_screen {
-  background-color: gray;
-  height: 100px;
+#calculator_screen {
+  text-align: right;
+  background-color: #B1D0E0;
+  border: 3px solid black;
+  min-height: 100px;
   width: 375px;
   z-index: 1;
   font-size: 64px;
   border-radius: 10px;
   margin-bottom: 50px;
-} */
+  word-wrap: break-word;
+  word-break: break-all;
+  flex-grow: 1;
+}
 
 .clear {
   font-size: 64px;
   padding: 8px;
   height: 70px;
   border-radius: 5px;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 #equal_button {
@@ -47,37 +56,24 @@ body {
   height: 70px;
   width: 140px;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-input {
-  background-color: gray;
-  height: 100px;
-  width: 375px;
-  z-index: 1;
-  font-size: 64px;
-  border-radius: 10px;
-  margin-bottom: 50px;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 
 .inputs {
   font-size: 64px;
   padding: 8px;
   height: 70px;
   border-radius: 5px;
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #number_buttons {
   display: grid;
   grid-template-columns: auto auto auto;
-  justify-items: start;
   grid-gap: 16px;
 }
 
@@ -86,10 +82,18 @@ input::-webkit-inner-spin-button {
   padding: 8px;
   height: 70px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #operator_buttons {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+}
+
+.operator, .inputs, .clear, #equal_button {
+  background-color: #406882;
+  color:#B1D0E0;
 }

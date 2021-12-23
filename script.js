@@ -14,41 +14,41 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-function operate(num1, num2, operator) {
+function operate(operator, ...args) {
   switch (operator) {
     case "+":
-      return add(num1, num2)
+      return add(...args)
       break;
     case "-":
-      return subtract(num1, num2)
+      return subtract(...args)
       break;
     case "*":
-      return multiply(num1, num2)
+      return multiply(...args)
       break;
-    case "/":
-      return divide(num1, num2)
+    case "÷":
+      return divide(...args)
       break;
     default:
       break;
   }
 }
 
-let inputBox = document.querySelector('input');
+let inputBox = document.getElementById('calculator_screen');
 let buttonInputs = document.querySelectorAll('.inputs');
 let clearButton = document.getElementById('clear');
 let operatorButtons = document.querySelectorAll('.operator');
 let operator = "";
-let nextNum = 0
+let total = 0
 
 
 
-buttonInputs.forEach(button => button.addEventListener('click', e => inputBox.value += e.target.innerHTML));
+buttonInputs.forEach(button => button.addEventListener('click', e => inputBox.textContent += e.target.textContent));
 
 operatorButtons.forEach(button => button.addEventListener('click', e => {
-  operator = e.target.innerHTML;
-  nextNum = inputBox.value
+  operator = e.target.textContent;
+  total = inputBox.value;
 }));
 
 
 
-clearButton.addEventListener('click', () => inputBox.value = "");
+clearButton.addEventListener('click', () => inputBox.textContent = "");
