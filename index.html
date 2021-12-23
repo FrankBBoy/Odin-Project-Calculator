@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Odin Project Calculator</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id='calculator'>
+    <div id='calculator_screen'>
+      <input type="number"
+        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        maxlength="10">
+    </div>
+    <div id='button_container'>
+      <div id='number_buttons'>
+        <button id='one' class='inputs'>1</button>
+        <button id='two' class='inputs'>2</button>
+        <button id='three' class='inputs'>3</button>
+        <button id='four' class='inputs'>4</button>
+        <button id='five' class='inputs'>5</button>
+        <button id='six' class='inputs'>6</button>
+        <button id='seven' class='inputs'>7</button>
+        <button id='eight' class='inputs'>8</button>
+        <button id='nine' class='inputs'>9</button>
+        <button id='zero' class='inputs'>0</button>
+        <button id='decimal' class='inputs'>.</button>
+        <button id='clear' class='clear'>Clear</button>
+      </div>
+      <div id='operator_buttons'>
+        <button id='divide' class='operator'>/</button>
+        <button id='multiply' class='operator'>*</button>
+        <button id='subtract' class='operator'>-</button>
+        <button id='add' class='operator'>+</button>
+      </div>
+    </div>
+    <div>
+      <button id="equal_button">=</button>
+    </div>
+  </div>
+  <script src="script.js">
+  </script>
+</body>
+
+</html>
