@@ -6,14 +6,16 @@
   <meta name="viewport" content="width=device-width">
   <title>Odin Project Calculator</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Genos&family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div id='calculator'>
     <div id='calculator_screen'>
-      <!-- <input type="number"
-        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-        maxlength="10"> -->
+      <div id='total_screen'></div>
+      <div id='input_screen'>0</div>
     </div>
     <div id='button_container'>
       <div id='number_buttons'>
@@ -27,7 +29,7 @@
         <button id='eight' class='inputs'>8</button>
         <button id='nine' class='inputs'>9</button>
         <button id='zero' class='inputs'>0</button>
-        <button id='decimal' class='inputs'>.</button>
+        <button id='decimal' class='decimal'>.</button>
         <button id='clear' class='clear'>C</button>
       </div>
       <div id='operator_buttons'>
@@ -41,6 +43,7 @@
       <button id="equal_button">=</button>
     </div>
   </div>
+  <footer>Frank Samba 2021</footer>
   <script src="script.js">
   </script>
 </body>

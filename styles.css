@@ -1,7 +1,13 @@
 body {
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #B1D0E0;
 }
 
 #button_container {
@@ -16,7 +22,6 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #1A374D;
-  /* height: 600px; */
   width: 400px;
   border: 3px solid black;
   border-radius: 10px;
@@ -28,7 +33,7 @@ body {
   text-align: right;
   background-color: #B1D0E0;
   border: 3px solid black;
-  min-height: 100px;
+  min-height: 120px;
   width: 375px;
   z-index: 1;
   font-size: 64px;
@@ -37,6 +42,9 @@ body {
   word-wrap: break-word;
   word-break: break-all;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
 }
 
 .clear {
@@ -50,6 +58,16 @@ body {
 
 }
 
+#decimal {
+  font-size: 64px;
+  padding: 8px;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #equal_button {
   font-size: 64px;
   padding: 8px;
@@ -61,6 +79,14 @@ body {
   justify-content: center;
 }
 
+footer {
+  margin-top: auto;
+  position: relative;
+  clear: both;
+  font-size: 36px;
+  padding-bottom: 10px;
+}
+
 .inputs {
   font-size: 64px;
   padding: 8px;
@@ -69,6 +95,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#input_screen {
+  margin-top: auto;
 }
 
 #number_buttons {
@@ -93,7 +123,19 @@ body {
   row-gap: 16px;
 }
 
-.operator, .inputs, .clear, #equal_button {
+.operator, .inputs, .clear, #equal_button, #decimal {
   background-color: #406882;
   color:#B1D0E0;
+  border-color: black;
+  font-family: 'Ubuntu', sans-serif;
+
+}
+
+#total_screen {
+  font-size: 36px;
+}
+
+#total_screen, #input_screen {
+  font-family: 'Genos', sans-serif;
+  font-weight: bold;
 }

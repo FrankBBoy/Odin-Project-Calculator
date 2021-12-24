@@ -14,42 +14,97 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-function operate(operator, ...args) {
+function operate(operator, num1, num2) {
+  num1 = Number(num1);
+  num2 = Number(num2);
   switch (operator) {
     case "+":
-      return add(...args)
-      break;
+      return add(num1, num2);
     case "-":
-      return subtract(...args)
-      break;
+      return subtract(num1, num2);
     case "×":
-      return multiply(...args)
-      break;
+      return multiply(num1, num2);
     case "÷":
-      return divide(...args)
-      break;
-    default:
-      break;
+      if (num2 === 0) {
+        return null;
+      } else {
+        return divide(num1, num2);
+      }
+      default:
+        return null;
   }
 }
 
-let inputBox = document.getElementById('calculator_screen');
-let buttonInputs = document.querySelectorAll('.inputs');
-let clearButton = document.getElementById('clear');
-let operatorButtons = document.querySelectorAll('.operator');
-let operator = "";
-let total = 0
+let firstNum = "";
+let secondNum = "";
+let currentInput = null;
+let resetInput = false;
+const inputBox = document.getElementById('input_screen');
+const totalBox = document.getElementById('total_screen');
+const buttonInputs = document.querySelectorAll('.inputs');
+const decimalButton = document.getElementById('decimal')
+const clearButton = document.getElementById('clear');
+const operatorButtons = document.querySelectorAll('.operator');
+const equalsButton = document.getElementById('equal_button');
 
 
+equalsButton.addEventListener('click', evaluate);
 
-buttonInputs.forEach(button => button.addEventListener('click', e => inputBox.textContent += e.target.textContent));
+buttonInputs.forEach(button => button.addEventListener('click', () => appendNumber(button.textContent)));
 
-operatorButtons.forEach(button => button.addEventListener('click', e => {
-  operator = e.target.textContent;
-  total = inputBox.textContent;
-  console.log(total)
-}));
+operatorButtons.forEach(button => button.addEventListener('click', () => setOperation(button.textContent)));
 
+clearButton.addEventListener('click', () => {
+  inputBox.textContent = '0';
+  totalBox.textContent = '';
+  firstNum = '';
+  secondNum = ''
+  currentInput = null;
+});
 
+decimalButton.addEventListener('click', appendDecimal)
 
-clearButton.addEventListener('click', () => inputBox.textContent = "");
+function appendNumber(number) {
+  if (inputBox.textContent === '0' || resetInput)
+    resetScreen();
+  inputBox.textContent += number;
+}
+
+function appendDecimal() {
+  if (resetInput) resetScreen()
+  if (inputBox.textContent === '')
+    inputBox.textContent = '0';
+  if (inputBox.textContent.includes('.')) return
+  inputBox.textContent += '.';
+}
+
+function resetScreen() {
+  inputBox.textContent = '';
+  resetInput = false;
+}
+
+function setOperation(operator) {
+  if (currentInput !== null) evaluate();
+  firstNum = inputBox.textContent;
+  currentInput = operator;
+  totalBox.textContent = `${firstNum} ${currentInput}`;
+  resetInput = true;
+}
+
+function evaluate() {
+  if (currentInput === null || resetInput) return
+  if (currentInput === '÷' && inputBox.textContent === '0') {
+    alert("Cannot divide by 0!")
+    return
+  }
+  secondNum = inputBox.textContent
+  inputBox.textContent = roundResult(
+    operate(currentInput, firstNum, secondNum)
+  )
+  totalBox.textContent = `${firstNum} ${currentInput} ${secondNum} =`
+  currentInput = null;
+}
+
+function roundResult(number) {
+  return Math.round(number * 1000) / 1000
+}
